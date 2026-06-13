@@ -21,7 +21,7 @@
         Width="{Binding Width, Mode=TwoWay}"
         WindowState="{Binding WindowState, Mode=TwoWay}"
         ToolTipService.InitialShowDelay="500"
-        Title="eInvoice Viewer"
+        Title="eInvoice PDF Viewer"
         Icon="Assets/TuloTeam.ico"
         SnapsToDevicePixels="True"
         MinWidth="1000"
@@ -34,7 +34,7 @@
     </WindowChrome.WindowChrome>
 
     <Window.TaskbarItemInfo>
-        <TaskbarItemInfo Description="eInvoice Viewer" />
+        <TaskbarItemInfo Description="eInvoice Pdf Viewer" />
     </Window.TaskbarItemInfo>
 
     <Window.Resources>

@@ -57,7 +57,7 @@
     <PackageReference Include="tulo.CommonMVVM.WPF" Version="1.0.0" />
     <PackageReference Include="tulo.CoreLib" Version="1.0.0" />
     <PackageReference Include="tulo.LoadingSpinnerControl" Version="1.0.0" />
-    <PackageReference Include="tulo.ResourcesWpfLib" Version="1.0.0" />
+    <PackageReference Include="tulo.ResourcesWpfLib" Version="1.0.1" />
     <PackageReference Include="tulo.SerilogLib" Version="1.0.0" />
     <PackageReference Include="tulo.XMLeInvoiceToPdf" Version="1.0.2" />
   </ItemGroup>
