@@ -8,12 +8,12 @@ using Serilog.Core;
 using System.IO;
 using tulo.CommonMVVM.GlobalProperties;
 using tulo.CoreLib.Translators;
-using tulo.eInvoiceViewer.Options;
-using tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.Options;
+using Tulo.eInvoiceViewer.Utilities;
 using tulo.XMLeInvoiceToPdf.Languages;
 using tulo.XMLeInvoiceToPdf.Services;
 
-namespace tulo.eInvoiceViewer.HostBuilders;
+namespace Tulo.eInvoiceViewer.HostBuilders;
 public static class AddServicesHostBuilderExtension
 {
     /// <summary>

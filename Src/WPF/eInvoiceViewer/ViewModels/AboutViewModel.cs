@@ -4,7 +4,7 @@ using tulo.CommonMVVM.Collector;
 using tulo.CommonMVVM.ViewModels;
 using tulo.ResourcesWpfLib.Commands;
 
-namespace tulo.eInvoiceViewer.ViewModels;
+namespace Tulo.eInvoiceViewer.ViewModels;
 public class AboutViewModel : BaseViewModel
 {
     public string Version { get; } = GetProgramVersion();

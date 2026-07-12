@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace tulo.eInvoiceViewer;
+namespace Tulo.eInvoiceViewer;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml

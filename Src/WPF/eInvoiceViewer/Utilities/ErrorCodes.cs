@@ -1,4 +1,4 @@
-﻿namespace tulo.eInvoiceViewer.Utilities;
+﻿namespace Tulo.eInvoiceViewer.Utilities;
 public static class ErrorCodes
 {
     public const string InvalidInput = "INVALID_INPUT";

@@ -1,4 +1,4 @@
-﻿namespace tulo.eInvoiceViewer.Utilities;
+﻿namespace Tulo.eInvoiceViewer.Utilities;
 public interface IStartupFileContext
 {
     string? FilePath { get; }

@@ -12,14 +12,14 @@ using System.Windows;
 using tulo.CommonMVVM.Collector;
 using tulo.CoreLib.Exceptions;
 using tulo.CoreLib.Translators;
-using tulo.eInvoiceViewer.Options;
-using tulo.eInvoiceViewer.Properties;
-using tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.Options;
+using Tulo.eInvoiceViewer.Properties;
+using Tulo.eInvoiceViewer.Utilities;
 using tulo.SerilogLib.Common;
 using tulo.XMLeInvoiceToPdf.Utilities;
 using WpfApplication = System.Windows.Application;
 
-namespace tulo.eInvoiceViewer;
+namespace Tulo.eInvoiceViewer;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>

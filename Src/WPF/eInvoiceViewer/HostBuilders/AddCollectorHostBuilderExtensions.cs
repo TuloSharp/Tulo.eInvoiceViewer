@@ -7,7 +7,7 @@ using tulo.CommonMVVM.Stores;
 using tulo.CoreLib.SystemConfig;
 using tulo.CoreLib.Utilities;
 
-namespace tulo.eInvoiceViewer.HostBuilders;
+namespace Tulo.eInvoiceViewer.HostBuilders;
 
 public static class AddCollectorHostBuilderExtensions
 {

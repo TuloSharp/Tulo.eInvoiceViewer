@@ -3,10 +3,10 @@ using System.Text;
 using tulo.CommonMVVM.Collector;
 using tulo.CommonMVVM.Commands;
 using tulo.CoreLib.PDFs;
-using tulo.eInvoiceViewer.Utilities;
-using tulo.eInvoiceViewer.ViewModels;
+using Tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.ViewModels;
 
-namespace tulo.eInvoiceViewer.Commands;
+namespace Tulo.eInvoiceViewer.Commands;
 public class XmlToPdfContentCommand(ContentXmlToPdfViewerViewModel contentXmlToPdfViewerViewModel, ICollectorCollection collectorCollection) : BaseCommand
 {
     private readonly ICollectorCollection _collectorCollection = collectorCollection;

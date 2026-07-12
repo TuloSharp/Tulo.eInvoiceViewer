@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using tulo.CoreLib.Components.ResultPattern;
 
-namespace tulo.eInvoiceViewer.Utilities;
+namespace Tulo.eInvoiceViewer.Utilities;
 public static class InvoiceTypeDetector
 {
     public static Result<InvoiceType> DetectFromContent(string xmlInvoiceContent)

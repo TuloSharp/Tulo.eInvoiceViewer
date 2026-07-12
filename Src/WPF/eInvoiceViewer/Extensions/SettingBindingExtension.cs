@@ -1,7 +1,7 @@
 ﻿using System.Windows.Data;
-using tulo.eInvoiceViewer.Properties;
+using Tulo.eInvoiceViewer.Properties;
 
-namespace tulo.eInvoiceViewer.Extensions;
+namespace Tulo.eInvoiceViewer.Extensions;
 
 public class SettingBindingExtension : Binding
 {

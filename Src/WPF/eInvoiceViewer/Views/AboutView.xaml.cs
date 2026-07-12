@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace tulo.eInvoiceViewer.Views;
+namespace Tulo.eInvoiceViewer.Views;
 /// <summary>
 /// Interaction logic for AboutView.xaml
 /// </summary>

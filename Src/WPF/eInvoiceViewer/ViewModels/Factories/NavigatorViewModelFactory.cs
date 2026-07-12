@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using tulo.CommonMVVM.Collector;
 using tulo.CommonMVVM.ViewModels;
-using tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.Utilities;
 
-namespace tulo.eInvoiceViewer.ViewModels.Factories
+namespace Tulo.eInvoiceViewer.ViewModels.Factories
 {
     public class NavigatorViewModelFactory(CreateViewModel<ContentXmlToPdfViewerViewModel> contentXmlToPdfViewerViewModel,
                                            CreateViewModel<AboutViewModel> createAboutViewModel,

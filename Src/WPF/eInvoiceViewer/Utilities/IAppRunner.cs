@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using tulo.CoreLib.Components.ResultPattern;
 
-namespace tulo.eInvoiceViewer.Utilities;
+namespace Tulo.eInvoiceViewer.Utilities;
 public interface IAppRunner
 {
     /// <summary>

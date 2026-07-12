@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using tulo.eInvoiceViewer;
-using tulo.eInvoiceViewer.ViewModels;
+using Tulo.eInvoiceViewer;
+using Tulo.eInvoiceViewer.ViewModels;
 
-namespace tulo.eInvoiceViewer.HostBuilders
+namespace Tulo.eInvoiceViewer.HostBuilders
 {
     public static class AddViewsHostBuilderExtensions
     {

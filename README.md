@@ -78,9 +78,9 @@ This project is open source and can be used, modified, and improved by the commu
 1. Go to the [Releases](../../releases) page
 2. Download the latest `.zip` file
 3. Create a folder structure as described in the [Configuration — end users](#configuration--end-users) section
-4. Extract the ZIP into the `tulo.eInvoiceViewer/` folder
-5. Edit your `appsettings.json` in the `tulo.eInvoiceViewer-appsettings/` folder with your seller data and preferences
-6. Run `tulo.eInvoiceViewer.exe`
+4. Extract the ZIP into the `Tulo.eInvoiceViewer/` folder
+5. Edit your `appsettings.json` in the `Tulo.eInvoiceViewer-appsettings/` folder with your seller data and preferences
+6. Run `Tulo.eInvoiceViewer.exe`
 
 No installer required.
 

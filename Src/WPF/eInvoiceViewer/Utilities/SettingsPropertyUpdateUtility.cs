@@ -2,10 +2,10 @@
 using System.Configuration;
 using System.IO;
 using System.Reflection;
-using tulo.eInvoiceViewer.Properties;
+using Tulo.eInvoiceViewer.Properties;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
-namespace tulo.eInvoiceViewer.Utilities
+namespace Tulo.eInvoiceViewer.Utilities
 {
     /// <summary>
     /// Has some functions to verify that settings will be remain properly after update.

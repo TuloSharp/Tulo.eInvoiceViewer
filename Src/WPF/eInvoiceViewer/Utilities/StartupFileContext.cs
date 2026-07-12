@@ -1,4 +1,4 @@
-﻿namespace tulo.eInvoiceViewer.Utilities;
+﻿namespace Tulo.eInvoiceViewer.Utilities;
 public sealed class StartupFileContext : IStartupFileContext
 {
     public string? FilePath { get; }

@@ -1,7 +1,7 @@
 ﻿using tulo.CoreLib.Components.ResultPattern;
 using tulo.XMLeInvoiceToPdf.Services;
 
-namespace tulo.eInvoiceViewer.Utilities;
+namespace Tulo.eInvoiceViewer.Utilities;
 public sealed class PdfGeneratorResolver : IPdfGeneratorResolver
 {
     private readonly IReadOnlyDictionary<string, IPdfGeneratorFromInvoice> _byName;

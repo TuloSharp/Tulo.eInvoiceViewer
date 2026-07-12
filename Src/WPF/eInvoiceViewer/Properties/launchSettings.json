@@ -2,11 +2,11 @@
   "profiles": {
     "Extended Invoice": {
       "commandName": "Project",
-      "commandLineArgs": "--pathFile \"D:\\temp mio\\tulo.eInvoiceViewer\\Src\\WPF\\eInvoiceViewer\\Examples\\ZF_Extended__Sammelrechnung_3_Bestellungen.xml\""
+      "commandLineArgs": "--pathFile \"D:\\temp mio\\Tulo.eInvoiceViewer\\Src\\WPF\\eInvoiceViewer\\Examples\\ZF_Extended__Sammelrechnung_3_Bestellungen.xml\""
     },
     "Extended Invoice Home": {
       "commandName": "Project",
-      "commandLineArgs": "--pathFile \"D:\\VisualStudio\\tulo.eInvoiceViewer\\Src\\WPF\\eInvoiceViewer\\Examples\\ZF_Extended__Sammelrechnung_3_Bestellungen.xml\""
+      "commandLineArgs": "--pathFile \"D:\\VisualStudio\\Tulo.eInvoiceViewer\\Src\\WPF\\eInvoiceViewer\\Examples\\ZF_Extended__Sammelrechnung_3_Bestellungen.xml\""
     },
     "Without Invoice": {
       "commandName": "Project",

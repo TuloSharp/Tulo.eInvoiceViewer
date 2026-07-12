@@ -6,14 +6,14 @@ using tulo.CommonMVVM.Collector;
 using tulo.CommonMVVM.Stores;
 using tulo.CommonMVVM.ViewModels;
 using tulo.CoreLib.Translators;
-using tulo.eInvoiceViewer.Commands.Common;
-using tulo.eInvoiceViewer.Properties;
-using tulo.eInvoiceViewer.Utilities;
-using tulo.eInvoiceViewer.ViewModels.Factories;
+using Tulo.eInvoiceViewer.Commands.Common;
+using Tulo.eInvoiceViewer.Properties;
+using Tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.ViewModels.Factories;
 using tulo.ResourcesWpfLib.Commands;
 using tulo.ResourcesWpfLib.Viewmodels;
 
-namespace tulo.eInvoiceViewer.ViewModels;
+namespace Tulo.eInvoiceViewer.ViewModels;
 public class MainViewModel : BaseViewModel, IResizeWindowViewModel
 {
     #region resolve service from CollectorCollection

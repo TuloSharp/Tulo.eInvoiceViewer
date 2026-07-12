@@ -1,4 +1,4 @@
-﻿namespace tulo.eInvoiceViewer.Options;
+﻿namespace Tulo.eInvoiceViewer.Options;
 internal class AppOptions : IAppOptions
 {
     public LocalizationOptions Localization { get; set; } = new();

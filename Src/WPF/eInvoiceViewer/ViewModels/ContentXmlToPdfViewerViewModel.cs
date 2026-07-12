@@ -2,10 +2,10 @@
 using tulo.CommonMVVM.Collector;
 using tulo.CommonMVVM.ViewModels;
 using tulo.CoreLib.Translators;
-using tulo.eInvoiceViewer.Commands;
-using tulo.eInvoiceViewer.Utilities;
+using Tulo.eInvoiceViewer.Commands;
+using Tulo.eInvoiceViewer.Utilities;
 
-namespace tulo.eInvoiceViewer.ViewModels;
+namespace Tulo.eInvoiceViewer.ViewModels;
 public class ContentXmlToPdfViewerViewModel : BaseViewModel
 {
     private readonly ICollectorCollection _collectorCollection;

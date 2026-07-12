@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace tulo.eInvoiceViewer.Controls;
+namespace Tulo.eInvoiceViewer.Controls;
 /// <summary>
 /// Interaction logic for PdfContentViewerControl.xaml
 /// </summary>

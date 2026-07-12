@@ -1,9 +1,9 @@
-﻿<Application x:Class="tulo.eInvoiceViewer.App"
+﻿<Application x:Class="Tulo.eInvoiceViewer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:tulo.eInvoiceViewer"
-             xmlns:views="clr-namespace:tulo.eInvoiceViewer.Views"
-             xmlns:viewmodels="clr-namespace:tulo.eInvoiceViewer.ViewModels">
+             xmlns:local="clr-namespace:Tulo.eInvoiceViewer"
+             xmlns:views="clr-namespace:Tulo.eInvoiceViewer.Views"
+             xmlns:viewmodels="clr-namespace:Tulo.eInvoiceViewer.ViewModels">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

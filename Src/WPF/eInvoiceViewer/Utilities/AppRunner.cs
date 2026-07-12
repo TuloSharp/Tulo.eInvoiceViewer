@@ -2,7 +2,7 @@
 using System.IO;
 using tulo.CoreLib.Components.ResultPattern;
 
-namespace tulo.eInvoiceViewer.Utilities;
+namespace Tulo.eInvoiceViewer.Utilities;
 public class AppRunner : IAppRunner
 {
     private readonly IPdfGeneratorResolver _resolver;

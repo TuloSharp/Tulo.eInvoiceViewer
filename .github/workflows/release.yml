@@ -14,9 +14,9 @@ jobs:
     with:
       project_name: eInvoiceViewer
       project_path: Src/WPF/eInvoiceViewer/eInvoiceViewer.csproj
-      publish_dir: publish/tulo.eInvoiceViewer
-      zip_prefix: tulo.eInvoiceViewer
-      executable_name: tulo.eInvoiceViewer.exe
+      publish_dir: publish/Tulo.eInvoiceViewer
+      zip_prefix: Tulo.eInvoiceViewer
+      executable_name: Tulo.eInvoiceViewer.exe
       runtime: win-x64
       dotnet_version: 8.0.x
       config_file: NuGet.config
