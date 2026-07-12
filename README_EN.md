@@ -230,7 +230,7 @@ All credits go to their respective authors and maintainers.
 This tool is a private project. If it helps you, support is appreciated.
 
 - ☕ [PayPal](https://paypal.me/MarceloGuartanAndrad)
-- ⭐ [GitHub](https://github.com/TuloSharp/Tulo.eInvoiceCreatorZUGFeRD.git)
+- ⭐ [GitHub](https://github.com/TuloSharp/Tulo.eInvoiceViewer.git)
 
 ---
 
