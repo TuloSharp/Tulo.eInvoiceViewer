@@ -7,6 +7,7 @@
   <Folder Name="/Solution Items/">
     <File Path="LICENSE" />
     <File Path="README.md" />
+    <File Path="README_EN.md" />
   </Folder>
   <Folder Name="/Src/" />
   <Folder Name="/Src/WPF/">
