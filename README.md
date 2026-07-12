@@ -109,14 +109,6 @@ Hinweis: Der Quellcode für tulo.XMLeInvoiceToPdf ist im GitHub-Repository verf�
 
 ---
 
-## UI-Icons
-
-Dieses Projekt verwendet außerdem Google Material Icons in der Benutzeroberfläche.
-
-Alle Rechte und Anerkennungen für diese Icons gehen an ihre jeweiligen Autoren und Maintainer.
-
----
-
 ## Unterstützte Rechnungstypen
 
 Dieses Projekt ist für XML-Rechnungsdateien vorgesehen, die auf strukturierten eInvoicing-Standards basieren.
@@ -228,9 +220,24 @@ Beispiel:
 
 ---
 
+## UI-Icons
+
+Dieses Projekt verwendet Google Material Icons in der Benutzeroberfläche.
+
+Alle Credits gehen an die jeweiligen Autoren und Maintainer.
+
+---
+
+## Support
+
+Dieses Tool ist ein privates Projekt. Wenn es dir hilft, freue ich mich über Unterstützung.
+
+- ☕ [PayPal](https://paypal.me/MarceloGuartanAndrad)
+- ⭐ [GitHub](https://github.com/TuloSharp/Tulo.eInvoiceCreatorZUGFeRD.git)
+
+---
+
 ## Lizenz
 
-Dieses Projekt ist Open Source.
-
-    Apache License
-    Version 2.0, Januar 2004
+    Apache License, Version 2.0
+    https://www.apache.org/licenses/LICENSE-2.0
