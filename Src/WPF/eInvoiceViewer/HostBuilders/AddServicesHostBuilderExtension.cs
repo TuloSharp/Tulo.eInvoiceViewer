@@ -114,9 +114,9 @@ public static class AddServicesHostBuilderExtension
         #endregion
 
         #region AppRunner
-        services.AddSingleton<IPdfGeneratorResolver, PdfGeneratorResolver>();
-        services.AddSingleton<IPdfGeneratorFromInvoice, PdfGeneratorFromInvoiceCii>();
-        services.AddSingleton<IPdfGeneratorFromInvoice, PdfGeneratorFromInvoiceUbl>();
+        services.AddTransient<IPdfGeneratorResolver, PdfGeneratorResolver>();
+        services.AddTransient<IPdfGeneratorFromInvoice, PdfGeneratorFromInvoiceCii>();
+        services.AddTransient<IPdfGeneratorFromInvoice, PdfGeneratorFromInvoiceUbl>();
         services.AddSingleton<IAppRunner, AppRunner>();
         #endregion
 

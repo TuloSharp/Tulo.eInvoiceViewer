@@ -7,16 +7,17 @@ using Serilog.Core;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Reflection;
 using System.Windows;
 using tulo.CommonMVVM.Collector;
 using tulo.CoreLib.Exceptions;
 using tulo.CoreLib.Translators;
+using tulo.SerilogLib.Common;
+using tulo.XMLeInvoiceToPdf.Utilities;
 using Tulo.eInvoiceViewer.Options;
 using Tulo.eInvoiceViewer.Properties;
 using Tulo.eInvoiceViewer.Utilities;
-using tulo.SerilogLib.Common;
-using tulo.XMLeInvoiceToPdf.Utilities;
 using WpfApplication = System.Windows.Application;
 
 namespace Tulo.eInvoiceViewer;
@@ -62,7 +63,7 @@ public partial class App : WpfApplication
     protected override void OnStartup(StartupEventArgs e)
     {
         #region Set Working Directory + Project name
-        // ✅ Also works with single-file publishing
+        // Also works with single-file publishing
         var exeDir = AppContext.BaseDirectory;
         if (!string.IsNullOrEmpty(exeDir))
         {
@@ -123,53 +124,52 @@ public partial class App : WpfApplication
         #endregion
 
         #region App Process Name
-        //var _systemConfiguration = scope.ServiceProvider.GetRequiredService<ISystemConfiguration>();
-        //var parentProcessId = _systemConfiguration.ParentProcessId;
-        var parentProcessId = Environment.ProcessId.ToString();
-        string mutexName = _projectName + parentProcessId;
+        string mutexName = _projectName!;
+        string pipeName = _projectName!;
         #endregion
 
         #region Startup App
         _host.Start();
+
+        // CHANGED: Only start listener in the first instance (after mutex check below)
         _logger.LogInformation($"'{nameof(OnStartup)}' : App is started");
-
-        Window window = scope.ServiceProvider.GetRequiredService<MainWindow>();
-        SettingsPropertyUpdateUtility settingsPropertyUpdateHelper = scope.ServiceProvider.GetRequiredService<SettingsPropertyUpdateUtility>();
-
-#if DEBUG
-        // Check for SelfLog errors before starting app
-        if (!selfLogErrors.IsEmpty)
-        {
-            _logger.LogError("Serilog internal errors detected, application will not start.");
-            foreach (var msg in selfLogErrors) { _logger.LogError("{Message}", msg); }
-
-            // Throw exception to prevent app startup
-            throw new StartupException("Serilog internal errors detected. Startup aborted.");
-        }
-#endif
         #endregion
 
         #region Check if process is running
         _mutex = new Mutex(true, mutexName, out bool createdNew);
         if (!createdNew)
         {
-            Process currentProcess = Process.GetCurrentProcess();
-            Process[] processes = Process.GetProcessesByName(currentProcess.ProcessName);
+            // CHANGED: Send file path to the first instance via pipe, then exit
+            var args = e.Args;
+            string? filePath = args.Length > 0 ? args[0] : null;
 
-            foreach (Process process in processes)
+            if (!string.IsNullOrEmpty(filePath))
             {
-                // Ensure we are not checking the current process
-                if (process.Id != currentProcess.Id)
+                try
                 {
-                    // Bring the main window of the running instance to the foreground
-                    IntPtr mainWindowHandle = process.MainWindowHandle;
-                    if (mainWindowHandle != IntPtr.Zero)
+                    using var pipe = new NamedPipeClientStream(".", pipeName, PipeDirection.Out);
+                    pipe.Connect(timeout: 2000);
+                    using var writer = new StreamWriter(pipe);
+                    writer.WriteLine(filePath);
+                    writer.Flush();
+                }
+                catch { /* first instance not ready, silently discard */ }
+            }
+            else
+            {
+                // No file, just bring window to foreground
+                Process currentProcess = Process.GetCurrentProcess();
+                foreach (var process in Process.GetProcessesByName(currentProcess.ProcessName))
+                {
+                    if (process.Id != currentProcess.Id)
                     {
-                        //if win is minimized
-                        NativeMethods.ShowWindow(mainWindowHandle, NativeMethods.SW_RESTORE);
-                        //bring win to the foreground
-                        NativeMethods.SetForegroundWindow(mainWindowHandle);
-                        break;
+                        IntPtr handle = process.MainWindowHandle;
+                        if (handle != IntPtr.Zero)
+                        {
+                            NativeMethods.ShowWindow(handle, NativeMethods.SW_RESTORE);
+                            NativeMethods.SetForegroundWindow(handle);
+                            break;
+                        }
                     }
                 }
             }
@@ -180,11 +180,27 @@ public partial class App : WpfApplication
         #endregion
 
         #region Show App
+        // CHANGED: Pipe listener only started in the first/main instance
+        Window window = scope.ServiceProvider.GetRequiredService<MainWindow>();
+        SettingsPropertyUpdateUtility settingsPropertyUpdateHelper = scope.ServiceProvider.GetRequiredService<SettingsPropertyUpdateUtility>();
+        StartPipeListener(pipeName);
+
+#if DEBUG
+        if (!selfLogErrors.IsEmpty)
+        {
+            _logger.LogError("Serilog internal errors detected, application will not start.");
+            foreach (var msg in selfLogErrors) { _logger.LogError("{Message}", msg); }
+            throw new StartupException("Serilog internal errors detected. Startup aborted.");
+        }
+#endif
+
         window.Show();
         _logger.LogInformation($"'{nameof(OnStartup)}' : UI is thrown");
         base.OnStartup(e);
         #endregion
     }
+
+    #region OnExit
     /// <summary>
     /// Handles application exit logic, including:
     /// - Saving user settings
@@ -203,7 +219,8 @@ public partial class App : WpfApplication
         Log.CloseAndFlush();
 
         base.OnExit(e);
-    }
+    } 
+    #endregion
 
     #region Native methods
     /// <summary>
@@ -265,6 +282,33 @@ public partial class App : WpfApplication
             throw; // optional: wenn App ohne diesen Service nicht laufen soll
         }
     }
+    #endregion
+
+    #region Pipe Listener
+    private void StartPipeListener(string pipeName)
+    {
+        Task.Run(async () =>
+        {
+            while (true)
+            {
+                using var pipe = new NamedPipeServerStream(pipeName, PipeDirection.In);
+                await pipe.WaitForConnectionAsync();
+
+                using var reader = new StreamReader(pipe);
+                var filePath = await reader.ReadLineAsync();
+
+                if (!string.IsNullOrEmpty(filePath))
+                {
+                    await Current.Dispatcher.InvokeAsync(() =>
+                    {
+                        // Jetzt korrekt über den echten Service
+                        var context = _host!.Services.GetRequiredService<IStartupFileContext>();
+                        context.RequestFile(filePath);
+                    });
+                }
+            }
+        });
+    } 
     #endregion
 }
 

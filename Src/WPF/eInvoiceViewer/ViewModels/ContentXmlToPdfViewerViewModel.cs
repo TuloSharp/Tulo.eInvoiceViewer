@@ -63,6 +63,13 @@ public class ContentXmlToPdfViewerViewModel : BaseViewModel
         SelectXmlFilePathCommand = new SelectXmlFilePathCommand(this, _collectorCollection);
         FileDroppedCommand = new FileDroppedCommand(this, _collectorCollection);
 
+        //Receive a new file from an external source
+        startupFileContext.NewFileRequested += filePath =>
+        {
+            XmlToPdfContentCommand.Execute(filePath);
+        };
+
+        // Run immediately upon startup app
         var filePath = startupFileContext.FilePath;
         XmlToPdfContentCommand.Execute(filePath);
 
